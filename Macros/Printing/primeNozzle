@@ -1,0 +1,16 @@
+;M98 P"0:/macros/Printing/primeNozzle"
+
+G90                                        ; absolute positioning
+M83                                        ; extruder relative mode
+G1 Z5 F1000                                ; lift z 5mm
+G1 X15 Y15 Z0.5 F18000                     ; move to blob position
+M400									   ; clear movement buffer
+G1 F60 E20                                 ; extrude a blob
+M106 P0 S102                               ; 40% fan
+G1 Z5 F100 E5                              ; move up by 5mm while extruding, breaks away from blob
+G1 F200 Y40 E1                             ; move to wipe position, keep extruding so the wipe is attached to blob
+G1 F200 Y60 Z0.2 E0.5                      ; go down diagonally while extruding
+M106 P0 S0                                 ; fan off
+G1 F200 Y70 Z0.2 E0.6                      ; small wipe line
+G1 F18000 Y115                             ; break away wipe
+M400								       ; clear movement buffer

@@ -1,0 +1,17 @@
+; 0:/macros/PID Tuning/PID Tune Bed 100
+; Based on https://docs.duet3d.com/en/User_manual/Connecting_hardware/Heaters_tuning
+;
+
+M291 S3 R"PID Tuning Bed to 100c" P"Do not interrupt or leave unattended while tuning in progress."
+
+M303 H0 S100 		; auto tune heater 0, default PWM, 60C target or maximum temperature
+
+while heat.heaters[0].state = "tuning"                               ; while the tuning procedure is active
+	G4 S10                                                           ; wait for 10 seconds
+
+;M98 P"0:/macros/Musical Tunes/TwoBits.g"
+
+M291 S3 R"PID Tuning Complete" P"Check console for heater values. Values saved to config-Override.g"
+
+M307 H0			; report values for heater 0
+M500			; Save values to config-override.g

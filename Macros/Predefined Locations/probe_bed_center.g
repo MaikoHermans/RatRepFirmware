@@ -1,0 +1,1 @@
+G0 X{(move.axes[0].max/2) - sensors.probes[0].offsets[0]} Y{(move.axes[1].max/2) - sensors.probes[0].offsets[1]}

@@ -1,0 +1,1 @@
+G1 X68 Y4 F99999 	; Move tool in front of klicky dock

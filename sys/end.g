@@ -1,0 +1,1 @@
+M98 P"cancel.g" ; stop is the same as cancel IMHO

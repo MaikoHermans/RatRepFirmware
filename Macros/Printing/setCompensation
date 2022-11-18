@@ -1,0 +1,5 @@
+if move.compensation.type == "none" 
+  G29 S1
+  M291 P"Old heightmap was used" S0
+else
+  echo "heightmap already set"
