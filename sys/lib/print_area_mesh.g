@@ -51,7 +51,7 @@ M557 X{var.pamMinX, var.pamMaxX} Y{var.pamMinY, var.pamMaxY} P{var.meshX, var.me
 
 if exists(global.probe_type)	; Check if the probe_type parameter is set to decide if a klicky probe could be present
 	M98 P{global.probePhysicalLoad}	; 
-G0 X{var.pamMinX + ((var.pamMaxX - var.pamMinX)/2) - sensors.probes[0].offsets[0]} Y{var.pamMinY + ((var.pamMaxY - var.pamMinY)/2) - sensors.probes[0].offsets[1]} 	; Move to the center of the print area
+G1 X{var.pamMinX + ((var.pamMaxX - var.pamMinX)/2) - sensors.probes[0].offsets[0]} Y{var.pamMinY + ((var.pamMaxY - var.pamMinY)/2) - sensors.probes[0].offsets[1]} F999999 	; Move to the center of the print area
 G30	; Set the z height for the center of the print area
 G29	; Probe the print area
 
